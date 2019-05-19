@@ -2,9 +2,10 @@
 	export let name
 </script>
 
-<style>
+<style lang="scss">
+  $color: purple;
 	h1 {
-	  color: purple;
+	  color: $color;
 	}
 </style>
 

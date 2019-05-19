@@ -4,8 +4,8 @@ import commonjs from 'rollup-plugin-commonjs'
 import livereload from 'rollup-plugin-livereload'
 import { terser } from 'rollup-plugin-terser'
 
-// import autoPreprocess from 'svelte-preprocess';
-const autoPreprocess = require('../../src/index.js')
+// import SASS from 'svelte-preprocess';
+const { scss } = require('../../src/index.js')
 
 const production = !process.env.ROLLUP_WATCH
 
@@ -19,13 +19,7 @@ export default {
   },
   plugins: [
     svelte({
-      preprocess: autoPreprocess({
-        transformers: {
-          postcss: {
-            plugins: [require('postcss-import')],
-          },
-        },
-      }),
+      preprocess: [scss()],
       // enable run-time checks when not in production
       dev: !production,
       // we'll extract any component CSS out into
